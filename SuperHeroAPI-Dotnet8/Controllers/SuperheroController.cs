@@ -81,5 +81,22 @@ namespace SuperHeroAPI_Dotnet8.Controllers
 
             return Ok(savedHero);
         }
+
+        [HttpDelete]
+        [Route("deleteSuperheroById/{id}")]
+        public async Task<IActionResult> deleteSuperHero(int id)
+        {
+            var theHero = await _context.superheroes.FindAsync(id);
+
+            var output = new Dictionary<string, object>();
+
+            output.Add("hero", theHero);
+            output.Add("message", "DELETED!");
+
+            _context.superheroes.Remove(theHero);
+            await _context.SaveChangesAsync();
+
+            return Ok(output);
+        }
     }
 }
