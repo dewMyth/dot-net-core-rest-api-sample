@@ -17,7 +17,8 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
-// Register repository and service
+// RESTRUCTURE POINTS
+// Register repository and service as like controllers
 builder.Services.AddScoped<ISuperheroRepository, SuperheroRepository>();
 builder.Services.AddScoped<ISuperheroService, SuperheroService>();
 

@@ -2,6 +2,8 @@
 
 namespace SuperHeroAPI_Dotnet8.Services
 {
+    // RESTRUCTURE POINTS
+    // Always use interfaces for Services & Repositories
     public interface ISuperheroService
     {
         List<Superhero> GetAllSuperheroes();

@@ -6,6 +6,9 @@ namespace SuperHeroAPI_Dotnet8.Services
 {
     public class SuperheroService : ISuperheroService
     {
+        // RESTRUCTURE POINTS
+        // Inject the relevant Repositories to Service files
+
         private readonly ISuperheroRepository _superheroRepository;
         public SuperheroService(ISuperheroRepository superheroRepository)
         {

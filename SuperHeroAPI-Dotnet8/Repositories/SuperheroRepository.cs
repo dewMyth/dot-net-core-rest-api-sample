@@ -5,7 +5,8 @@ namespace SuperHeroAPI_Dotnet8.Repositories
 {
     public class SuperheroRepository : ISuperheroRepository
     {
-
+        // RESTRUCTURE POINTS
+        // Inject the Database Connection (or context) to Repository and Define the Datbase operations in Repository
         private readonly DataContext _context;
         public SuperheroRepository(DataContext context)
         {

@@ -2,6 +2,9 @@
 
 namespace SuperHeroAPI_Dotnet8.Repositories
 {
+
+    // RESTRUCTURE POINTS
+    // Always use interfaces for Services & Repositories
     public interface ISuperheroRepository
     {
         void Add(Superhero superhero);
