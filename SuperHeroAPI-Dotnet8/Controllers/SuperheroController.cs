@@ -10,7 +10,6 @@ namespace SuperHeroAPI_Dotnet8.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class SuperheroController : ControllerBase
     {
         // RESTRUCTURE POINTS
@@ -23,7 +22,7 @@ namespace SuperHeroAPI_Dotnet8.Controllers
             _superheroService = superheroService;
         }
 
-        [HttpGet]
+        [HttpGet, Authorize(Roles = "Admin")]
         public async Task<ActionResult<List<Superhero>>> GetAllSuperheroes()
         {
             return _superheroService.GetAllSuperheroes();

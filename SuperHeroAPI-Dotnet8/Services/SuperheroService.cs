@@ -10,13 +10,23 @@ namespace SuperHeroAPI_Dotnet8.Services
         // Inject the relevant Repositories to Service files
 
         private readonly ISuperheroRepository _superheroRepository;
-        public SuperheroService(ISuperheroRepository superheroRepository)
+
+        // Inject the IHttpContextAccessor to access HTTP request data (Ex: If we need token in service layer)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public SuperheroService(ISuperheroRepository superheroRepository, IHttpContextAccessor httpContextAccessor)
         {
             _superheroRepository = superheroRepository;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public List<Superhero> GetAllSuperheroes()
         {
+            // Print Token to check whether Token is accessible in Service Level
+            var httpContext = _httpContextAccessor.HttpContext;
+            var authTokenFromReqHeader = httpContext.Request.Headers["Authorization"].FirstOrDefault();
+            Console.WriteLine(authTokenFromReqHeader);
+
             return _superheroRepository.GetAll();
         }
 

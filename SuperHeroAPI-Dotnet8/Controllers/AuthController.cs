@@ -60,6 +60,9 @@ namespace SuperHeroAPI_Dotnet8.Controllers
             {
                 new Claim(ClaimTypes.Name, user.Username), // Standard claim in .NET
                 new Claim("name", user.Username), // Custom Claim/Data , usually what we use in jwt in nodejs
+
+                // Add a role
+                 new Claim(ClaimTypes.Role, "Admin")
             };
 
             try
