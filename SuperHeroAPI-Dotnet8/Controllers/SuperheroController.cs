@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SuperHeroAPI_Dotnet8.Data;
@@ -21,7 +22,7 @@ namespace SuperHeroAPI_Dotnet8.Controllers
             _superheroService = superheroService;
         }
 
-        [HttpGet]
+        [HttpGet, Authorize(Roles = "Admin")]
         public async Task<ActionResult<List<Superhero>>> GetAllSuperheroes()
         {
             return _superheroService.GetAllSuperheroes();

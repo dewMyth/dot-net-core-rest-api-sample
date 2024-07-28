@@ -12,5 +12,6 @@ namespace SuperHeroAPI_Dotnet8.Data
 
         // Table Name : superheroes
         public DbSet<Superhero> superheroes { get; set; }
+        public DbSet<User> users { get; set; }
     }
 }
