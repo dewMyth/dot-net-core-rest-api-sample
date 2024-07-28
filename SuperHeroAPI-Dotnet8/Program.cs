@@ -56,7 +56,9 @@ builder.Services.AddDbContext<DataContext>(options =>
 // RESTRUCTURE POINTS
 // Register repository and service as like controllers
 builder.Services.AddScoped<ISuperheroRepository, SuperheroRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ISuperheroService, SuperheroService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 var app = builder.Build();
 
