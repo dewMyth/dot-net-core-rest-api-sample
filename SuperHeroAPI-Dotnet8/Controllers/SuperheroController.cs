@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SuperHeroAPI_Dotnet8.Data;
@@ -9,6 +10,7 @@ namespace SuperHeroAPI_Dotnet8.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class SuperheroController : ControllerBase
     {
         // RESTRUCTURE POINTS
